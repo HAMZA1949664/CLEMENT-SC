@@ -1,1 +1,37 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fabrication spéciale</title><link rel="stylesheet" href="../css/style.css"></head><body><div class="app"><aside class="sidebar"><div class="brand">Clément Design<small>Logistics</small></div><nav class="nav"><a href="../index.html">🏠 Dashboard</a><a href="../label-generator.html">🏷️ Étiquettes</a><a class="active" href="fabrication.html">🛠️ Fabrication spéciale</a><a href="reception.html">📦 Réception / Scan</a><a href="controle.html">🔎 Contrôle</a><a href="colisage.html">📋 Colisage</a><a href="historique.html">🕘 Historique</a></nav></aside><main class="main"><div class="top"><div><h1>Fabrication spéciale</h1><div class="user">Créer une référence unique liée à l'OF.</div></div></div><div class="card"><form id="fab-form" class="form"><div class="field"><label>OF</label><input id="of" required placeholder="25841"></div><div class="field"><label>Article</label><input id="article" required placeholder="Ferraille"></div><div class="field"><label>Couleur</label><input placeholder="Bleu marine"></div><div class="field"><label>Taille</label><input placeholder="TU"></div><div class="field"><label>Quantité prévue</label><input type="number" min="1" placeholder="50"></div><div class="field"><label>Façonnier</label><select><option>Archipel</option><option>Nasstex</option></select></div><div class="field full"><label>Commentaire</label><textarea rows="3"></textarea></div><div class="field full"><button class="btn btn-blue">Créer la fabrication spéciale</button></div></form><div id="result" class="notice hidden">Référence unique générée : <strong id="generated"></strong></div></div></main></div><script src="../config.js"></script><script src="../js/supabase.js"></script><script src="../js/app.js"></script><script src="../js/fabrication.js"></script></body></html>
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fabrication spéciale — Clément Design</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="app">
+<aside class="sidebar"><div class="brand">Clément Design<small>Logistics &amp; Traceability</small></div><nav class="nav"><a data-nav href="../index.html">🏠 Dashboard</a><a data-nav href="../label-generator.html">🏷️ Étiquettes</a><a data-nav href="fabrication.html">🛠️ Fabrication spéciale</a><a data-nav href="reception.html">📦 Réception / Scan</a><a data-nav href="controle.html">🔎 Contrôle</a><a data-nav href="colisage.html">📋 Colisage</a><a data-nav href="historique.html">🕘 Historique</a></nav></aside>
+<main class="main">
+<div class="top"><div><h1>Fabrication spéciale</h1><div class="user">Créer une référence unique liée à l'OF.</div><div id="config-status" class="user"></div></div></div>
+<div class="card">
+<form id="fab-form" class="form">
+<div class="field"><label for="of">OF</label><input id="of" required placeholder="25841" autocomplete="off"></div>
+<div class="field"><label for="article">Article</label><input id="article" required placeholder="Ferraille" autocomplete="off"></div>
+<div class="field"><label for="couleur">Couleur</label><input id="couleur" placeholder="Bleu marine" autocomplete="off"></div>
+<div class="field"><label for="taille">Taille</label><input id="taille" placeholder="TU" autocomplete="off"></div>
+<div class="field"><label for="quantite">Quantité prévue</label><input id="quantite" type="number" min="1" placeholder="50"></div>
+<div class="field"><label for="faconnier">Façonnier</label><select id="faconnier"><option>Archipel</option><option>Nasstex</option></select></div>
+<div class="field full"><label for="commentaire">Commentaire</label><textarea id="commentaire" rows="3"></textarea></div>
+<div class="field full"><button class="btn btn-blue" id="fab-submit">Créer la fabrication spéciale</button></div>
+</form>
+<div id="result" class="msg ok ref-box hidden">Référence unique générée : <strong id="generated"></strong><button type="button" class="btn btn-light" id="copy-ref">Copier</button></div>
+<div id="fab-msg" class="msg"></div>
+</div>
+<div class="card section"><h2 class="card-title">Dernières fabrications spéciales</h2><div class="table-wrap"><table class="table"><thead><tr><th>Date</th><th>Référence</th><th>OF</th><th>Article</th><th>Couleur / Taille</th><th>Qté</th><th>Façonnier</th></tr></thead><tbody id="fab-list"></tbody></table></div></div>
+</main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../config.js"></script>
+<script src="../js/supabase.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/fabrication.js"></script>
+</body>
+</html>
