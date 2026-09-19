@@ -1,1 +1,37 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Clément Design — Logistics</title><link rel="stylesheet" href="css/style.css"><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><script src="js/supabase.js"></script></head><body><div class="app"><aside class="sidebar"><div class="brand">Clément Design<small>Logistics & Traceability</small></div><nav class="nav"><a data-nav href="index.html">🏠 Dashboard</a><a data-nav href="label-generator.html">🏷️ Étiquettes</a><a data-nav href="pages/fabrication.html">🛠️ Fabrication spéciale</a><a data-nav href="pages/reception.html">📦 Réception / Scan</a><a data-nav href="pages/controle.html">🔎 Contrôle</a><a data-nav href="pages/colisage.html">📋 Colisage</a><a data-nav href="pages/historique.html">🕘 Historique</a></nav></aside><main class="main"><div class="top"><div><h1>Bonjour 👋</h1><div class="user">Clément Design — Achats / Logistique</div></div><div id="config-status" class="user"></div></div><div class="grid"><div class="card kpi"><div class="n" id="k-labels">—</div><div class="l">Étiquettes générées</div></div><div class="card kpi"><div class="n" id="k-receptions">—</div><div class="l">Réceptions</div></div><div class="card kpi"><div class="n" id="k-pieces">—</div><div class="l">Pièces reçues</div></div><div class="card kpi"><div class="n">—</div><div class="l">Anomalies</div></div></div><section class="section"><h2>Accès rapide</h2><div class="quick"><a href="label-generator.html"><strong>🏷️ Générateur d'étiquettes</strong><span>Générer les étiquettes et conserver le flux TXT Zebra existant.</span></a><a href="pages/reception.html"><strong>📦 Réception</strong><span>Scanner chaque pièce d'un carton avec la douchette.</span></a><a href="pages/colisage.html"><strong>📄 Colisage</strong><span>Regrouper les scans et préparer le PDF de colisage.</span></a></div></section></main></div><script src="js/app.js"></script><script src="js/dashboard.js"></script></body></html>
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Clément Design — Logistics</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+<aside class="sidebar"><div class="brand">Clément Design<small>Logistics &amp; Traceability</small></div><nav class="nav"><a data-nav href="index.html">🏠 Dashboard</a><a data-nav href="label-generator.html">🏷️ Étiquettes</a><a data-nav href="pages/fabrication.html">🛠️ Fabrication spéciale</a><a data-nav href="pages/reception.html">📦 Réception / Scan</a><a data-nav href="pages/controle.html">🔎 Contrôle</a><a data-nav href="pages/colisage.html">📋 Colisage</a><a data-nav href="pages/historique.html">🕘 Historique</a></nav></aside>
+<main class="main">
+<div class="top"><div><h1>Bonjour 👋</h1><div class="user">Clément Design — Achats / Logistique</div></div><div id="config-status" class="user"></div></div>
+<div class="grid">
+<div class="card kpi"><div class="n" id="k-labels">—</div><div class="l">Étiquettes générées</div></div>
+<div class="card kpi"><div class="n" id="k-receptions">—</div><div class="l">Cartons réceptionnés</div></div>
+<div class="card kpi"><div class="n" id="k-pieces">—</div><div class="l">Pièces reçues</div></div>
+<div class="card kpi"><div class="n" id="k-anomalies">—</div><div class="l">Anomalies</div></div>
+</div>
+<section class="section"><h2>Accès rapide</h2>
+<div class="quick">
+<a href="label-generator.html"><strong>🏷️ Générateur d'étiquettes</strong><span>Générer les étiquettes et conserver le flux TXT Zebra existant.</span></a>
+<a href="pages/reception.html"><strong>📦 Réception</strong><span>Scanner chaque pièce d'un carton avec la douchette.</span></a>
+<a href="pages/colisage.html"><strong>📄 Colisage</strong><span>Regrouper les scans et préparer le PDF de colisage.</span></a>
+</div></section>
+<section class="section"><h2>Activité récente</h2>
+<div class="card"><div class="table-wrap"><table class="table"><thead><tr><th>Date</th><th>Action</th><th>EAN</th><th>Module</th></tr></thead>
+<tbody id="recent-list"><tr><td colspan="4" class="empty">Connectez Supabase pour afficher l'activité.</td></tr></tbody></table></div></div></section>
+</main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/app.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

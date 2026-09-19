@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Réception — Clément Design</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="app">
+<aside class="sidebar"><div class="brand">Clément Design<small>Logistics &amp; Traceability</small></div><nav class="nav"><a data-nav href="../index.html">🏠 Dashboard</a><a data-nav href="../label-generator.html">🏷️ Étiquettes</a><a data-nav href="fabrication.html">🛠️ Fabrication spéciale</a><a data-nav href="reception.html">📦 Réception / Scan</a><a data-nav href="controle.html">🔎 Contrôle</a><a data-nav href="colisage.html">📋 Colisage</a><a data-nav href="historique.html">🕘 Historique</a></nav></aside>
+<main class="main">
+<div class="top"><div><h1>Réception / Scan</h1><div class="user">1 carton → ouvrir → scanner TOUS les articles → fermer → carton suivant</div><div id="config-status" class="user"></div></div><div>Scans : <strong id="scan-count">0</strong> &nbsp;·&nbsp; Anomalies : <strong id="anomaly-count">0</strong></div></div>
+<div class="card">
+<div class="form">
+<div class="field"><label for="of">OF</label><input id="of" placeholder="Ex : 25841" autocomplete="off"></div>
+<div class="field"><label for="carton">N° carton</label><input id="carton" placeholder="Ex : 001" autocomplete="off"></div>
+<div class="field full"><label for="scanner">Douchette — scanner un EAN puis Entrée</label><input id="scanner" class="scan-in" autofocus autocomplete="off" placeholder="Scannez le code-barres…"></div>
+</div>
+<div class="actions">
+<button type="button" class="btn btn-blue" id="add-scan">Ajouter le scan</button>
+<button type="button" class="btn btn-light" id="undo-scan">Annuler le dernier scan</button>
+<button type="button" class="btn btn-danger" id="clear-scans">Effacer</button>
+<button type="button" class="btn btn-primary" id="close-carton">Fermer le carton</button>
+<label class="check"><input type="checkbox" id="sound" checked> Son</label>
+</div>
+<div id="reception-msg" class="msg"></div>
+</div>
+<div class="card section"><h2 class="card-title">Scans du carton</h2><div class="table-wrap"><table class="table"><thead><tr><th>#</th><th>EAN scanné</th><th>Désignation</th><th>État</th></tr></thead><tbody id="scan-list"></tbody></table></div></div>
+<div class="card section"><h2 class="card-title">Contenu du carton (par référence)</h2><div class="table-wrap"><table class="table"><thead><tr><th>EAN</th><th>Désignation</th><th>Quantité</th></tr></thead><tbody id="carton-summary"></tbody></table></div></div>
+</main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../config.js"></script>
+<script src="../js/catalog.js"></script>
+<script src="../js/supabase.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/reception.js"></script>
+</body>
+</html>

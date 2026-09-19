@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Colisage — Clément Design</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="app">
+<aside class="sidebar"><div class="brand">Clément Design<small>Logistics &amp; Traceability</small></div><nav class="nav"><a data-nav href="../index.html">🏠 Dashboard</a><a data-nav href="../label-generator.html">🏷️ Étiquettes</a><a data-nav href="fabrication.html">🛠️ Fabrication spéciale</a><a data-nav href="reception.html">📦 Réception / Scan</a><a data-nav href="controle.html">🔎 Contrôle</a><a data-nav href="colisage.html">📋 Colisage</a><a data-nav href="historique.html">🕘 Historique</a></nav></aside>
+<main class="main">
+<div class="top"><div><h1>Colisage</h1><div class="user">Le flux se termine ici avec la génération du PDF.</div><div id="config-status" class="user"></div></div></div>
+<div class="notice no-print">Les scans répétés comptent plusieurs pièces. Les EAN inconnus sont signalés en rouge et enregistrés comme anomalies.</div>
+<div class="card no-print">
+<div class="form">
+<div class="field"><label for="packing-ref">Référence colisage (facultatif)</label><input id="packing-ref" placeholder="Ex : COL-0042" autocomplete="off"></div>
+<div class="field"><label for="packing-of">OF (facultatif)</label><input id="packing-of" placeholder="Ex : 25841" autocomplete="off"></div>
+<div class="field full"><label for="packing-input">Codes-barres scannés — un par ligne</label><textarea id="packing-input" class="scan-box" placeholder="3700791735033&#10;3700791735033&#10;3700791735040"></textarea></div>
+</div>
+<div class="actions">
+<button type="button" class="btn btn-blue" id="build-packing">Générer le colisage</button>
+<button type="button" class="btn btn-light" id="print-packing">📄 Générer / imprimer PDF</button>
+<button type="button" class="btn btn-danger" id="reset-packing">Vider</button>
+</div>
+<div id="packing-msg" class="msg"></div>
+</div>
+<div class="print-only"><h1 id="print-title">Colisage</h1><p id="print-meta"></p></div>
+<div class="card section">
+<div class="stats" style="margin:0 0 14px">
+<div class="s"><div class="n" id="packing-total">0</div><div class="l">Pièces</div></div>
+<div class="s"><div class="n" id="packing-refs">0</div><div class="l">Références</div></div>
+<div class="s bad"><div class="n" id="packing-anomalies">0</div><div class="l">Anomalies</div></div>
+</div>
+<div id="anomaly-box" class="notice anomaly-box hidden"></div>
+<div class="table-wrap"><table class="table"><thead><tr><th>EAN</th><th>Désignation</th><th>Quantité</th><th>État</th></tr></thead><tbody id="packing-result"></tbody></table></div>
+</div>
+</main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../config.js"></script>
+<script src="../js/catalog.js"></script>
+<script src="../js/supabase.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/colisage.js"></script>
+</body>
+</html>
